@@ -1,6 +1,6 @@
 ///grafo.h
 ///
-///Faz a definição das estruturas usadas no módulo e os protótipos das funções.
+///Faz a definição das estruturas usadas no módulo do grafo e os protótipos das funções.
 
 #define WHITE 0
 #define GREY 1
@@ -32,3 +32,5 @@ void InserirAresta (TipoVertice *, int, int, int);
 TipoVertice* PreencherGrafo(int *, char *);
 
 void ImprimirGrafo (TipoVertice *, int);
+
+void EsvaziarGrafo (TipoVertice *, int);

@@ -51,19 +51,20 @@ TipoVertice* PreencherGrafo(int *numCidades, char *entradaArq){
 	return vertice;
 }
 
-///Função que imprime o grafo na tela.
+//Função que esvazia o grafo.
 
-void ImprimirGrafo (TipoVertice *vertice, int numCidades){
+void EsvaziarGrafo (TipoVertice *vertice, int numCidades){
 	int i;
-	TipoApontador aux;
+	TipoApontador no, aux;
 
 	for (i=0;i<numCidades;i++){
-		printf("%d\n", i);
-		aux=vertice[i].listaAdj.primeiro;
-		while (aux!=NULL){
-			printf("%d %d\n", aux->cidade, aux->distancia);
-			aux=aux->prox;
-		}	
-		printf("\n");	
+		no=vertice[i].listaAdj.primeiro;
+		while(no!=NULL){
+			aux=no;
+			no=no->prox;
+			free (aux);
+		}
+		vertice[i].listaAdj.primeiro=NULL;
+		vertice[i].cor=WHITE;
 	}
 }

@@ -48,7 +48,6 @@ void DFS (TipoVertice *vertice, int origem, int numCidades, int distancia, int *
 	///garantindo assim uma poda nos dados a serem verificados e aumentando a eficiência.
 
 	if(menorDistancia!=-1 && distancia>menorDistancia) return;
-	printf("%d\n", distancia);
 
 	vertice[origem].cor=GREY;
 	atual=vertice[origem].listaAdj.primeiro;
@@ -68,7 +67,7 @@ void DFS (TipoVertice *vertice, int origem, int numCidades, int distancia, int *
 ///Função que imprime a saída do programa. Contém o caminho mais curto, a distância total desse
 ///caminho e as distâncias parciais entre cada cidade. 
 
-void ImprimeSaida(TipoVertice *vertice, int *menorCaminho, int numCidades){
+void ImprimirSaida(TipoVertice *vertice, int *menorCaminho, int numCidades){
 	TipoApontador atual;
 	int i;
 
@@ -99,5 +98,5 @@ void BuscaMT (TipoVertice *vertice, int origem, int numCidades){
 
 	menorCaminho=(int*)malloc(numCidades*sizeof(int));
 	DFS (vertice, origem, numCidades, 0, caminho, 0);
-	ImprimeSaida(vertice,menorCaminho,numCidades);
+	ImprimirSaida(vertice,menorCaminho,numCidades);
 }

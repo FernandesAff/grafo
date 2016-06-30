@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "grafo.h"
+#include <sys/time.h>
 #include "busca.h"
 
 ///Função que mostra uma tela de ajuda ao usuário.
@@ -46,7 +46,11 @@ int main (int argc, char **argv){
 	}
 
 	vertice=PreencherGrafo(&numCidades, entradaArq);
-	//ImprimirGrafo(vertice, numCidades);
+	if(origem<0 || origem>=numCidades){
+		printf("Origem incorreta\n");
+		return 0;
+	}
 	BuscaMT(vertice,origem,numCidades);
+	EsvaziarGrafo(vertice, numCidades);
 	return 0;
 }

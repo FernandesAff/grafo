@@ -10,7 +10,7 @@ grafo.o: grafo.c
 	gcc -c grafo.c
 
 busca.o: busca.c
-	gcc -c busca.c		
+	gcc -c busca.c
 
 limpa:
 	rm *.o
